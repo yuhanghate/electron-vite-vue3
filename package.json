@@ -8,9 +8,9 @@
   "scripts": {
     "dev": "tsx .electron-vite/dev-runner.ts",
     "build": "cross-env BUILD_TARGET=clean tsx .electron-vite/build.ts -m prod && electron-builder -c build.json",
-    "build:win32": "cross-env BUILD_TARGET=clean tsx .electron-vite/build.ts  && electron-builder -c build.json --win  --ia32",
-    "build:win64": "cross-env BUILD_TARGET=clean tsx .electron-vite/build.ts  && electron-builder -c build.json --win  --x64",
-    "build:mac": "cross-env BUILD_TARGET=clean tsx .electron-vite/build.ts  && electron-builder -c build.json --mac",
+    "build:win": "cross-env PLATFORM=win BUILD_TARGET=clean tsx .electron-vite/build.ts  && electron-builder -c build.json --win  --ia32 --x64",
+    "build:mac": "cross-env PLATFORM=mac BUILD_TARGET=clean tsx .electron-vite/build.ts  && electron-builder -c build.json --mac --arm64 --x64",
+    "build:linux": "cross-env PLATFORM=linux BUILD_TARGET=clean tsx .electron-vite/build.ts  && electron-builder -c build.json --linux  --x64",
     "build:dir": "cross-env BUILD_TARGET=clean tsx .electron-vite/build.ts  && electron-builder -c build.json --dir",
     "build:clean": "cross-env BUILD_TARGET=onlyClean tsx .electron-vite/build.ts",
     "build:web": "cross-env BUILD_TARGET=web tsx .electron-vite/build.ts",
@@ -83,5 +83,5 @@
     "vue3",
     "rollup"
   ],
-  "packageManager": "yarn@4.1.0"
+  "packageManager": "yarn@4.1.1+sha256.f3cc0eda8e5560e529c7147565b30faa43b4e472d90e8634d7134a37c7f59781"
 }

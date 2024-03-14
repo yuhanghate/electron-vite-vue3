@@ -10,7 +10,7 @@
   "productName": "electron-vite-template",
   "appId": "org.sky.electron-vite-template",
   "directories": {
-    "output": "build"
+    "output": "dist"
   },
   "files": [
     "dist/electron/**/*"
@@ -31,12 +31,21 @@
     ]
   },
   "mac": {
-    "icon": "build/icons/icon.icns"
+    "icon": "dist/icons/icon.icns",
+    "artifactName": "${productName}-${version}-mac-${arch}.${ext}"
   },
   "win": {
-    "icon": "build/icons/icon.ico"
+    "icon": "dist/icons/icon.ico",
+    "artifactName": "${productName}-${version}-win-${arch}.${ext}"
   },
   "linux": {
-    "icon": "build/icons"
+    "icon": "dist/icons",
+    "artifactName": "${productName}-${version}-linux-${arch}.${ext}",
+    "target": [
+      {
+        "target": "deb",
+        "arch": ["x64", "arm64"]
+      }
+    ]
   }
 }
